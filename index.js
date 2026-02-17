@@ -8,7 +8,7 @@ function login() {
 
     if (username === savedUser && password === savedPass) {
         localStorage.setItem("login", "true");
-        window.location.href = "./beranda/home.html";
+        window.location.href = "/beranda/home.html";
     } else {
         alert("Login gagal!");
     }
