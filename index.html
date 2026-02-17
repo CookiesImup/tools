@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading...</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glass">
+    <h2>Checking Session...</h2>
+</div>
+
+<script src="index.js"></script>
+
+<script>
+    setTimeout(() => {
+        if (localStorage.getItem("login") === "true") {
+            window.location.href = "beranda/home.html";
+        } else {
+            window.location.href = "main/login.html";
+        }
+    }, 1500);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Beranda</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    
+    <!-- HAMBURGER -->
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    
+    <!-- SIDEBAR -->
+    <div class="sidebar" id="sidebar">
+        
+        <div>
+            <a href="#" class="active-menu">🏠 Beranda</a>
+            <a href="../tools/tools.html">🛠 Tools</a>
+            <a href="#">💬 Help</a>
+        </div>
+        
+        <div class="logout-area">
+            <button class="logout-btn" onclick="openLogout()">Logout</button>
+        </div>
+        
+    </div>
+    
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    
+    <!-- LOGOUT MODAL -->
+    <div class="modal" id="logoutModal">
+        <h3>Are you sure?</h3>
+        <div style="display:flex; justify-content:space-between;">
+            <button onclick="closeLogout()">Cancel</button>
+            <button onclick="confirmLogout()">Sure</button>
+        </div>
+    </div>
+    
+    <!-- MAIN CONTENT -->
+    <div class="glass">
+        
+        <h2 class="floating">Welcome to Website 🚀</h2>
+        <p class="floating">Welcome back 👋</p>
+        
+        <!-- GROUP CARD -->
+        <div class="group-card">
+            <img src="../database/grup.jpg">
+            
+            <div class="group-content">
+                <h3>ibu ibu arisan setia kawan 🫰🌹🌹</h3>
+                <p>Jangan lupa join grup kesayangan kita❤️</p>
+                
+                <button class="join-btn" onclick="window.open('https://chat.whatsapp.com/Fp7xQJQR0nG3112Stw39H0?mode=gi_t','_blank')">
+                    Masuk ✈️
+                </button>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="../index.js"></script>
+    
+    <script>
+        // PROTECT LOGIN
+        if (localStorage.getItem("login") !== "true") {
+            window.location.href = "../main/login.html";
+        }
+        
+        // SIDEBAR TOGGLE
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+            document.getElementById("overlay").classList.toggle("active");
+        }
+        
+        // LOGOUT MODAL
+        function openLogout() {
+            document.getElementById("logoutModal").classList.add("active");
+        }
+        
+        function closeLogout() {
+            document.getElementById("logoutModal").classList.remove("active");
+        }
+        
+        function confirmLogout() {
+            localStorage.setItem("login", "false");
+            window.location.href = "../main/login.html";
+        }
+    </script>
+    
+</body>
+
+</html>
